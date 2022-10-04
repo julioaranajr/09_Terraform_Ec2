@@ -167,3 +167,16 @@ resource "aws_instance" "my_public_server" {
   }
 }
 ```
+### Challenge 1
+
+* Create an [architecture](https://lucid.app/lucidchart/a729338e-6d9a-4a3a-9dd4-853ac9fcb38e/edit?viewport_loc=176%2C68%2C2176%2C1196%2CzHoVtG_8qfUN&invitationId=inv_eaa3426d-ecf3-44af-b5fa-49841be5e631#) that will host public instance with internet connectivity and allow SSH access from your mac.
+* Create 3 instances in the private subnet
+* Set up a new security Group, that allow SSH access ONLY from the public instance to connect to the private IP Address of the private instances.
+* Attach the new Security Group to the private instances.
+* Connect to the public instance and paste your private key into the `/home/ec2-user/.ssh/`. This will allow you to connect to the private instances
+
+### Challenge 2 - Bonus
+
+For security and monitoring purposes, the client is requesting a dashboard like interface that list all the running virtual machines that exists in their application(private) subnet.
+
+You have been tasked to create a web server on the public subnet that will provide a list of existing running instances within the private subnet. You can use coding tools like Python(with boto3), bash scripting with `awscliv2` or any other tools, to collect the information about the infrastructure.
