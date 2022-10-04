@@ -1,28 +1,22 @@
-# 09_terraform_ec2
+# EC2 
 
-# Hands on Labs EC2 
 
 > **Tasks**:
 
-> - [Task 1: Getting set up](#task1)
-> - [Task 2: Provider](#task2)
-> - [Task 3: Backend](#task3)
-> - [Task 4: Data sources](#task4)
-> - [Task 5: Variables](#task5)
-> - [Task 6: Security Groups](#task6)
-> - [Task 7: Key Pair](#task7)
-> - [Task 8: EC2](#task8)
-> - [Task 9: Challenge 1](#task9)
-> - [Task 10: Challenge 2 - Bonus](#task10)
+> - [Task 1: Provider](#task1)
+> - [Task 2: Backend](#task2)
+> - [Task 3: Data sources](#task3)
+> - [Task 4: Variables](#task4)
+> - [Task 5: Security Groups](#task5)
+> - [Task 6: Key Pair](#task6)
+> - [Task 7: EC2](#task7)
 
 ### </a> <a name="task1"></a>Getting set up
 
-All the example codes can be found here : [Traininig EC2 Lab.](https://github.com/julioaranajr?tab=repositories)
-
 Start by exporting the right profile and region to start working with terraform:
 ```sh
-export AWS_PROFILE="talent-academy"
-export AWS_DEFAULT_REGION="eu-central-1"
+export AWS_PROFILE="cloudreach-trainer-lab"
+export AWS_DEFAULT_REGION="us-east-1"
 ```
 
 Go to GitHub to create a new repository for the EC2 project.
@@ -42,7 +36,7 @@ Create a new file called `provider.tf`
 
 ```javascript
 provider "aws" {
-  region = "eu-central-1"
+  region = "us-east-1"
 }
 ```
 
@@ -53,7 +47,7 @@ Create a `backend.tf` file to select your bucket, key and lock table for your pr
 ```javascript
 terraform {
   backend "s3" {
-    bucket = "talent-academy-account_id-tfstates-3209877882333"
+    bucket = "talent-academy-account_id-tfstates-pascal"
     key    = "projects/ec2/terraform.tfstates"
     dynamodb_table = "terraform-lock"
   }
@@ -105,7 +99,7 @@ variable "aws_ami_name" {
 And use the `terraform.tfvars` to assign values to your variables:
 ```javascript
 # ASSIGNING VALUE TO VARIABLES
-aws_owner_id       = "3209877882333"
+aws_owner_id       = "137112412989"
 aws_ami_name       = "amzn2-ami-kernel-5.10-hvm*"
 ```
 
